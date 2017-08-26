@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Trivia Game Simple</title>
+    <!-- reset.css link -->
+    <link rel="stylesheet" type="text/css" href="../TriviaGame/assets/css/reset.css">
+    <!-- style.css link -->
+    <link rel="stylesheet" type="text/css" href="../TriviaGame/assets/css/style.css">
+    <!-- jQuery link -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- javaScript link -->
+    <script type="text/javascript" src="../TriviaGame/assets/javascript/app.js" async></script>
+</head>
+
+<body>
+    <div class=header>
+        <h1>Totally Lame Trivia!!</h1>
+    </div>
+    <!-- this div will hold the styling of my page -->
+    <div class="container">
+    
+        <!-- quiz is to hold the the questions being generated from jQuery -->
+        <div id="quiz">
+        </div>
+
+        <!-- there will be 4 submit answer boxes.  Only 1 can be selected.  Answers need to be stored and tallied -->
+        <button id="submit">Submit Answer</button>
+
+        <!-- this will diplay their results after the time has run out  -->
+        <div id="results">
+        </div>
+    </div>
+</body>
+
+</html>
