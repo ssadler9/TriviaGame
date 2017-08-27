@@ -26,3 +26,11 @@ h1 {
 	position: relative;
 	bottom: -50px;
 }
+
+#timer {
+	position: relative;
+	left: 760px;
+	margin-right: 0px;
+	top: 15px;
+	font-size: 30px;
+}
