@@ -2,6 +2,8 @@
 var correctAnswers = 0;
 // increment incorrect answers
 var incorrectAnswers = 0;
+// Creating an array for user selections
+var selections = [];
 // 10 questions for user to answer
 var questions = [{
         question: "Which player was not part of the Dallas Cowboys Triplets?",
@@ -55,6 +57,14 @@ var questions = [{
     },
 ];
 
+// display questions on html
+function displayQuestion(index, value) {
+	$.each(questions, function (index, value){
+		console.log(value);
+		$('#quiz').append('<p>' + value + '</p>');
+	});
+};
+
 // timer for the game -- 45 seconds
 var timer = 46;
 var intervalId;
@@ -79,19 +89,11 @@ decrement();
 // stops the timer
 function stop() {
     clearInterval(intervalId);
-}
-
-// display questions on html
-function displayQuestion() {
-
-    $.each(questions, function(key, element) {
-        $('#quiz').append('<p>' + element + '</p>' + '<br>');
-    });
-
 };
 
 displayQuestion();
 run();
+
 
 // answer bank of correct answers
 // answer bank of incorrect answers
@@ -100,8 +102,10 @@ run();
 
 // display end of game screen with reults when time runs out
 
-
-
+// First attempt at Display Question
+    // $.each(questions, function(key, element) {
+    //     $('#quiz').append('<p>' + element + '</p>' + '<br>');
+    // });
 
 
 
