@@ -13,24 +13,25 @@
     <script type="text/javascript" src="../TriviaGame/assets/javascript/app.js" async></script>
 </head>
 
-<body>
+<body class="background">
     <div class=header>
-        <h1>Totally Lame Trivia!!</h1>
+        <h1>Dallas Cowboys Trivia!!</h1>
+        <br>
+        <br>
     </div>
     <!-- this div will hold the styling of my page -->
     <div class="container">
-    
+        <div id="timer">
+        </div>
+        <!-- <button id="start">Start</button> -->
         <!-- quiz is to hold the the questions being generated from jQuery -->
         <div id="quiz">
         </div>
-
         <!-- there will be 4 submit answer boxes.  Only 1 can be selected.  Answers need to be stored and tallied -->
-        <button id="submit">Submit Answer</button>
-
+        <button id="submit">Submit</button>
         <!-- this will diplay their results after the time has run out  -->
         <div id="results">
         </div>
     </div>
 </body>
-
 </html>
