@@ -1,11 +1,13 @@
+// timer for the game -- 45 seconds
+var timer = 41;
+// setinterval id
+var intervalId;
 // increment correct answers
 var correctAnswers = 0;
 // increment incorrect answers
 var incorrectAnswers = 0;
 
-// Creating an array for user selections
-// Need to verify if correct answer or incorrect answer, then store those in an array
-var selections = [];
+
 
 // 10 questions for user to answer
 var questions = [{
@@ -55,67 +57,88 @@ var questions = [{
     },
     {
         question: "When will the Dallas Cowboys when their next Superbowl?",
-        choices: [" 2017 ", " 2018 ", " 2060 ", " Never Again... "],
-        correctAnswer: 1
+        choices: [" 2018 ", " 2019 ", " 2060 ", " Never Again... "],
+        correctAnswer: 0
     },
-];
-
-// trackers the user clicks
-var userGuess = $('#quiz').click(function (){
-			// console.log(userGuess);
-			 // need to verify if userGuess is = correctAnswer
-			if (userGuess === CorrectAnswer){
-				correctAnswers++;
-				console.log(correctAnswers);
-			}
-		});
-			
-
+];		
 
 function displayQuestion(index, value) {
-	$.each(questions, function (index, value){
-		// displays questions to the quiz div box on html
-		$('#quiz').append('<p>' + value.question + '</p>' + '<br>');
-		// displays the answer choices to the quiz div box on html
-		$('#quiz').append('<button>' + value.choices[0] + '</button>' + '<button>' + value.choices[1] + '</button>' + '<button>' + value.choices[2] + '</button>' + '<button>' + value.choices[3] + '</button>' + '<br>' + '<br>');
-		// check if user choice is the correct choice
-		// then increment correctAnswers
-		// else if user choice is incorrect then increment incorrectAnswers
-	});
+    $.each(questions, function(index, value) {
+        // displays questions to the quiz div box on html
+        $('#quiz').append('<p>' + value.question + '</p>' + '<br>');
+        // displays the answer choices to the quiz div box on html
+        for (var i = 0; i < value.choices.length; i++) {
+            // choices[i];
+            // displays choices as buttons
+            var answer = $('<button>').text(value.choices[i]).val(i);
+            // adds value to correct answers for tracking
+            if(i === value.correctAnswer){
+            	answer.attr("answer", "dog");
+            }
+            // adds class to separate buttons from questions
+            answer.addClass("answerButtons");
+            $('#quiz').append(answer);
+        };
+    });
+// tracks to clicks and will increment if correctAnswer else incorrectAnswer
+	$('.answerButtons').on('click', function() {
+		if($(this).attr("answer") === undefined){
+			// console.log("wrong");
+			incorrectAnswers++;
+			$('#incorrect').html('<p>Wrong Answers: ' + incorrectAnswers + '</p>');
+		} else {
+			// console.log("right");
+			correctAnswers++;
+			$('#correct').html('<p>Correct Answers: ' + correctAnswers + '</p>');
+		}
+	 });
 };
 
-
-// timer for the game -- 45 seconds
-var timer = 46;
-var intervalId;
-
+// ends game if submit button clicked
+$('#submit').on('click', function(){
+    swal({
+  		title: "Results",
+  		text: "Correct: " + correctAnswers + " Incorrect: " + incorrectAnswers + " ",
+  		imageUrl: "https://www.purposegames.com/images/games/background/75/75769.png",
+  		confirmButtonText: "Cool"
+	});
+	stop();
+});
 // makes timer count down at a rate of 1 second
 function run() {
     intervalId = setInterval(decrement, 1000);
 };
-
 // function shows the timer counting down
 function decrement() {
     timer--;
     $('#timer').html('<h2>' + timer + '</h2>');
     // makes game end at 0
     if (timer === 0) {
-        console.log('Game Over');
         stop();
-    }
-};
-decrement();
+        swal({
+  			title: "Results",
+  			text: "Correct: " + correctAnswers + " Incorrect: " + incorrectAnswers + " ",
+  			imageUrl: "https://www.purposegames.com/images/games/background/75/75769.png",
+  			confirmButtonText: "Cool"
+	});
 
+    } else if ('#timer' !== 0) {
+    	$('#results').hide();
+    };
+};
 // stops the timer
 function stop() {
     clearInterval(intervalId);
 };
+// display end of game screen with reults when time runs out
 
 displayQuestion();
+decrement();
 run();
 
 
-// display end of game screen with reults when time runs out
+
+
 
 
 

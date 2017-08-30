@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="../TriviaGame/assets/css/reset.css">
     <!-- style.css link -->
     <link rel="stylesheet" type="text/css" href="../TriviaGame/assets/css/style.css">
+    <!-- sweet alert -->
+    <script src="./assets/sweetalert-master/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="./assets/sweetalert-master/dist/sweetalert.css">
     <!-- jQuery link -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- javaScript link -->
@@ -26,11 +29,15 @@
         <!-- <button id="start">Start</button> -->
         <!-- quiz is to hold the the questions being generated from jQuery -->
         <div id="quiz">
+        	
         </div>
+       
         <!-- there will be 4 submit answer boxes.  Only 1 can be selected.  Answers need to be stored and tallied -->
         <button id="submit">Submit</button>
         <!-- this will diplay their results after the time has run out  -->
         <div id="results">
+        <span id="correct"></span>
+        <span id="incorrect"></span>
         </div>
     </div>
 </body>
