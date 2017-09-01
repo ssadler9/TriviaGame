@@ -1,5 +1,5 @@
 // timer for the game -- 45 seconds
-var timer = 41;
+var timer = 61;
 // setinterval id
 var intervalId;
 // increment correct answers
@@ -42,7 +42,7 @@ var questions = [{
     },
     {
         question: "Before the NFC/AFC Split, which team shared Dallas, TX?",
-        choices: [" Tennessee Titans ", " Arizona Cardinals ", " Kansas City Chiefs ", " Houston Oilers "],
+        choices: [" LA Rams ", " Arizona Cardinals ", " Kansas City Chiefs ", " Houston Oilers "],
         correctAnswer: 2
     },
     {
